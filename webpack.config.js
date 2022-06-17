@@ -21,22 +21,33 @@ module.exports = {
     },
     module: {
         rules: [{
-            test: /\.css$/,
-            use: ["style-loader", "css-loader"]
-        }, {
-            test: /\.less$/,
-            use: ["style-loader", "css-loader", 'less-loader']
-        }, {
-            test: /\.(png|jpg|gif|jpeg)$/i,
-            type: 'asset',
-            parser: {
-                dataUrlCondition: {
-                    maxSize: 20 * 1024
+                test: /\.css$/,
+                use: ["style-loader", "css-loader"]
+            }, {
+                test: /\.less$/,
+                use: ["style-loader", "css-loader", 'less-loader']
+            }, {
+                test: /\.(png|jpg|gif|jpeg)$/i,
+                type: 'asset',
+                parser: {
+                    dataUrlCondition: {
+                        maxSize: 20 * 1024
+                    }
+                },
+                generator: {
+                    filename: 'image/[hash:6][ext]'
+                }
+            }, { // webpack5默认内部不认识这些文件, 所以当做静态资源直接输出即可
+                test: /\.(eot|svg|ttf|woff|woff2)$/,
+                type: 'asset/resource',
+                generator: {
+                    filename: 'fonts/[hash:6][ext]'
                 }
             },
-            generator: {
-                filename: 'image/[hash:6][ext]'
+            {
+                test: /\.js$/i,
+                use: ["babel-loader"]
             }
-        }, ]
+        ]
     }
 }

@@ -10,5 +10,7 @@ gif.src = gifSrc
 png.src = pngSrc
 document.body.appendChild(gif)
 document.body.appendChild(png)
+    // 引入字体图标文件
+import './assets/fonts/iconfont.css'
 marquee()
 tab()
