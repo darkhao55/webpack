@@ -28,7 +28,15 @@ module.exports = {
             use: ["style-loader", "css-loader", 'less-loader']
         }, {
             test: /\.(png|jpg|gif|jpeg)$/i,
-            type: 'asset'
-        }]
+            type: 'asset',
+            parser: {
+                dataUrlCondition: {
+                    maxSize: 20 * 1024
+                }
+            },
+            generator: {
+                filename: 'image/[hash:6][ext]'
+            }
+        }, ]
     }
 }
