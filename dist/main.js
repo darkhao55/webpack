@@ -1,0 +1,1 @@
+(()=>{"use strict";console.log("完成了轮播图功能"),console.log("完成了tab切换功能")})();
