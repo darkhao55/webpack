@@ -1,6 +1,7 @@
 const { join } = require("path")
     // 引入自动生成 html 的插件
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { VueLoaderPlugin } = require('vue-loader')
 module.exports = {
     mode: 'development',
     entry: "./src/main.js",
@@ -13,7 +14,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './public/index.html',
             filename: 'index.html'
-        })
+        }), new VueLoaderPlugin()
     ],
     devServer: {
         open: true,
@@ -47,6 +48,10 @@ module.exports = {
             {
                 test: /\.js$/i,
                 use: ["babel-loader"]
+            },
+            {
+                test: /\.vue$/,
+                loader: 'vue-loader'
             }
         ]
     }

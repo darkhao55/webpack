@@ -12,5 +12,7 @@ document.body.appendChild(gif)
 document.body.appendChild(png)
     // 引入字体图标文件
 import './assets/fonts/iconfont.css'
+import app from './app.vue' // 根vue文件
+
 marquee()
 tab()
